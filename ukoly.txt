@@ -1,0 +1,32 @@
+﻿Prerekvizity:
+
+ - budeme používat python3
+ - v souboru hip_test.py je uveden příklad navázání komunikace s interkomem
+ - pro testy vyžijeme standardního modulu unittest
+ - všechny testy budeme mít ve společné třídě
+ - využíváme asserty z unitest modulu
+
+Úkoly:
+
+
+1) identifikovat chybějící závislosti a doinstalovat je tak, aby fungoval skript hip_test.py
+
+2) identifikovat chybu způsobenou při importu, která způsobuje delay a vypisuje: timed out
+ - nahradit ji výpisem, že import proběhl v pořádku a přidat informaci s aktuálním datem a časem v iso formátu
+
+3) vytvořit testovací třídu pomocí unittest, v ní budeme psát testy
+
+4) přidat první test
+ - pro přihlášení využít ajax command:
+        req_json = [{'command': 'system.login', 'user': username, 'password': password}]
+        rsp_json = self.send_ajax_request(req_json)
+ - assertovat, že 3 špatná přihlášení do interkomu neprojdou a poté se zablokuje možnost přihlášení na definovaný čas
+ - následně vyčkat dle timeoutu v odpovědi a ověřit možnost přihlášení
+
+5) přidat do třídy test, který bude vycházet z camera_test.py, který není kompletní
+ - instanční proměnné nastavíme v setup metodě, z chybějících konstant uděláme třídní atributy
+ - je potřeba stáhnout ffmpeg binárky (ffmpeg.exe a ffprobe.exe) a cestu k nim předat do podprocesu (https://ffmpeg.org/)
+ - do kódu je potřeba něco doplnit, aby správně testoval
+ - po skončení testu vymažeme vygenerované soubory
+
+
